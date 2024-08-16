@@ -64,8 +64,16 @@ models:
       - name: Purchase_cost
         description: Purchase_cost = Quantity * Purchase_price
     tests:
-      - unique
-      - not_null
+      - unique:
+          column_name: "(orders_id || '-' || products_id)"
+      - not_null:
+          column_name: orders_id
+          column_name: products_id
+          column_name: margin
+          column_name: Purchase_cost
+          column_name: date_date
+          column_name: revenue
+          column_name: quantity
   - name: int_orders_margin
     description: margin calcultation per order
     columns:
